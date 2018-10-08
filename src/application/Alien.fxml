@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AlienController">
+   <top>
+      <VBox alignment="TOP_CENTER" prefHeight="62.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" collapsible="false" expanded="false" text="Alien Translator v2018">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </TitledPane>
+            <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="0.0" prefWidth="400.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alien Text" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <TextField fx:id="inputText" alignment="TOP_LEFT" onAction="#doTranslate">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="translateButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#doTranslate" text="Translate">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Button>
+                  <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@alienjpg.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <TextArea fx:id="outputText" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </TextArea>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="3.0" prefWidth="395.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="buttonClear" mnemonicParsing="false" onAction="#doClear" text="Clear text">
+               <HBox.margin>
+                  <Insets bottom="10.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
