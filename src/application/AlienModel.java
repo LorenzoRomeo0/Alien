@@ -11,6 +11,11 @@ public class AlienModel {
 	AlienModel(){
 		parole=new ArrayList<Word>();
 	}
+	/**
+	 * metodo che implementa tutti i metodi della classe
+	 * @param text
+	 * @return
+	 */
 	String wordCheck(String text) {
 		if(exists(new Word("a","a"))==-1)
 			parole.add(new Word("a","a"));
