@@ -16,7 +16,14 @@ public class AlienModel {
 	 * @param text
 	 * @return
 	 */
-	String wordCheck(String text) {
+	String wordCheck(String text1, String text2) {
+		String text="";
+		if(text1!="") {
+			if(text2!="")
+				text=text1+" "+text2;
+			else if(text2=="")
+				text=text1;
+		}
 		if(exists(new Word("a","a"))==-1)
 			parole.add(new Word("a","a"));
 		String returnedValue="";

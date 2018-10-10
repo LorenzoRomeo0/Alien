@@ -37,6 +37,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </TextField>
+                  <TextField fx:id="inputText1" />
                   <Button fx:id="translateButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#doTranslate" text="Translate">
                      <HBox.margin>
                         <Insets right="10.0" />

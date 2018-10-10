@@ -37,7 +37,11 @@ public class AlienController {
     @FXML
     void doTranslate(ActionEvent event) {
     	String text=inputText.getText();
-    	outputText.setText(alien.wordCheck(text));
+    	if(!text.isEmpty())
+    		if(text.split(" ").length==2)
+    			outputText.setText(alien.wordCheck(text.split(" ")[0],text.split(" ")[1]));
+    		else if(text.split(" ").length==1)
+    				outputText.setText(alien.wordCheck(text.split(" ")[0],""));
     }
 
     @FXML
