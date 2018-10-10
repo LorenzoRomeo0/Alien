@@ -31,11 +31,17 @@ public class AlienModel {
     		return "ERRORE: Il formato usato non e' corretto. lo standard e': parola traduzione, separati da uno spazio, altrimenti solo la parola se si vuole visualizzare la traduzione. ";
 	}*/
 	String wordCheck(String text) {
+		if(exists(new Word("a","a"))==-1)
+			parole.add(new Word("a","a"));
 		String returnedValue="";
 		text=text.toLowerCase();
 		if(formatType(text)==1) {
-			return getTraduzione(text.split(" ")[1]);
+			s();
+			System.out.println("1");
+			return getTraduzione(text.split(" ")[0]);
 		}if(formatType(text)==2) {
+			s();
+			System.out.println("2");
 			inserisciTraduzione(new Word(text.split(" ")[0], text.split(" ")[1]));
 			return "INFO: La traduzione e' stata inserita/aggiornata con successo.";
 		}
@@ -46,7 +52,7 @@ public class AlienModel {
 	int formatType(String text) {
 		String[] valori=text.split(" ");
 		if(valori.length==1) {
-			if(valori[1].matches(regex)) {
+			if(valori[0].matches(regex)) {
 				return 1;
 			}else
 				return 0;
@@ -64,33 +70,30 @@ public class AlienModel {
 		if(index==-1) {
 			this.parole.add(new Word(parole.alien, parole.word));
 		}else{
-			this.parole.get(index).word=parole.word;
+			this.parole.get(index-1).word=parole.word;
 			}
 		}
-	//decommentare se non si vuole la riscrittura delle vecchie traduzioni.
-	/*String inserisciTraduzione(String parole) {
-		String[] p=parole.split(" ");
-		if(exists(parole==-1)) {
-			this.parole.add(new Word(p[0], p[1]));
-			return "";
-		}
-		return "INFO: La parola e' gia' presente nel database.";
-		}*/
 	//
 	int exists(Word parola){
-		int pos=-1;
+		boolean trovato=false;
+		int pos=0;
 		for(Word w:parole) {
 			pos++;
-			if(w.equals(parola))
-				return pos;
+			if(w.alien.equals(parola.alien)) {
+				trovato=true;
+				break;
+			}
 		}
+		if(!trovato)
+			pos=-1;
 		return pos;
 	}
 	//
 	void s() {
 		for(Word w: parole) {
-			System.out.println(w.word+" "+w.word+" ;");
+			System.out.println(w.alien+" "+w.word+" ;");
 		}
+		System.out.println("-------------------------");
 	}
 	//
 	String getTraduzione(String parola) {
