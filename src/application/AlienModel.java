@@ -11,25 +11,6 @@ public class AlienModel {
 	AlienModel(){
 		parole=new ArrayList<Word>();
 	}
-	/*String wordCheck(String text) {
-		text=text.toLowerCase();
-		String[] value=text.split(" ");
-    	if(value.length==2) {
-    		System.out.println("a");
-    		if(value[0].matches(regex) && value[1].matches(regex)) {
-    			System.out.println("true");
-    			inserisciTraduzione(new Word(value[0], value[1]));
-    			return "INFO: La traduzione e' stata inserita/aggiornata con successo.";
-    		}
-		return "ERRORE: Il formato usato non e' corretto. lo standard e': parola traduzione, separati da uno spazio, altrimenti solo la parola se si vuole visualizzare la traduzione. ";
-    	}
-    	System.out.println("b");
-    	s();
-    	if(value.length==1)
-    		return getTraduzione(value[0]);
-    	else 
-    		return "ERRORE: Il formato usato non e' corretto. lo standard e': parola traduzione, separati da uno spazio, altrimenti solo la parola se si vuole visualizzare la traduzione. ";
-	}*/
 	String wordCheck(String text) {
 		if(exists(new Word("a","a"))==-1)
 			parole.add(new Word("a","a"));
