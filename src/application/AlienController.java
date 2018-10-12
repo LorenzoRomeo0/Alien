@@ -19,6 +19,10 @@ public class AlienController {
 
     @FXML
     private TextField inputText;
+    
+    @FXML
+    private TextField inputText1;
+
 
     @FXML
     private Button translateButton;
@@ -37,11 +41,11 @@ public class AlienController {
     @FXML
     void doTranslate(ActionEvent event) {
     	String text=inputText.getText();
-    	if(!text.isEmpty())
-    		if(text.split(" ").length==2)
-    			outputText.setText(alien.wordCheck(text.split(" ")[0],text.split(" ")[1]));
-    		else if(text.split(" ").length==1)
-    				outputText.setText(alien.wordCheck(text.split(" ")[0],""));
+    	String text1=inputText1.getText();
+    	if(!text.isEmpty()) {
+    		outputText.setText(alien.wordCheck(text, text1));
+    	}else
+    		outputText.setText("");
     }
 
     @FXML
